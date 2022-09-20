@@ -10,10 +10,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'TruckAssure',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+          primaryColor: Colors.black,
+          primaryColorDark: Colors.grey.shade800,
+          fontFamily: "TruckSans",
+          textTheme: ThemeData.dark().textTheme.copyWith(
+              headline6: TextStyle(
+                  fontFamily: "TruckSans",
+                  fontWeight: FontWeight.normal,
+                  fontSize: 25),
+              button: TextStyle(color: Colors.white))),
       home: MyHomePage(title: 'Truck Assure'),
     );
   }
@@ -30,6 +37,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: CompanyWidget());
+    return Scaffold(body: SafeArea(child: CompanyWidget()));
   }
 }
