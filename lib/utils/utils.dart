@@ -1,35 +1,20 @@
 import 'package:flutter/material.dart';
 
 class Utils {
-  final String company;
-  final String zipcode;
-  final String street;
-  final String city;
-  final String country;
-  final String state;
-  final String contact;
-  final String title;
-  final String phone;
-  final String fax;
-  final String email;
-  final String taxId;
-  final String fmcsa;
-  Utils(
-      {this.company,
-      this.zipcode,
-      this.street,
-      this.city,
-      this.country,
-      this.state,
-      this.contact,
-      this.title,
-      this.phone,
-      this.taxId,
-      this.fax,
-      this.email,
-      this.fmcsa});
-
-  bool isValid() {
+  bool isValid(
+      String company,
+      String zipcode,
+      String street,
+      String city,
+      String country,
+      String state,
+      String contact,
+      String title,
+      String phone,
+      String fax,
+      String email,
+      String taxId,
+      String fmcsa) {
     if (company != null &&
         company.isNotEmpty &&
         zipcode != null &&

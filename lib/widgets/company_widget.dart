@@ -3,6 +3,7 @@ import 'package:truckassure/widgets/default/image_container.dart';
 import 'package:truckassure/widgets/default/title_container.dart';
 import 'package:truckassure/widgets/default/text.dart';
 import 'package:truckassure/utils/utils.dart';
+import 'package:truckassure/models/company_details_data.dart';
 
 class CompanyWidget extends StatefulWidget {
   @override
@@ -10,6 +11,8 @@ class CompanyWidget extends StatefulWidget {
 }
 
 class _CompanyWidgetState extends State<CompanyWidget> {
+  Utils _utils = Utils();
+
   final _company = TextEditingController();
   final _zipcode = TextEditingController();
   final _street = TextEditingController();
@@ -31,31 +34,28 @@ class _CompanyWidgetState extends State<CompanyWidget> {
     _isButtonEnabled = false;
   }
 
+  bool checkFields() {
+    return _utils.isValid(
+        _company.text,
+        _zipcode.text,
+        _street.text,
+        _city.text,
+        _state.text,
+        _contact.text,
+        _country.text,
+        _email.text,
+        _fax.text,
+        _phone.text,
+        _taxId.text,
+        _title.text,
+        _fmcsa.text);
+  }
+
   void onSubmit() {
     setState(() {
-      Utils _utils = Utils(
-          company: _company.text,
-          zipcode: _zipcode.text,
-          street: _street.text,
-          city: _city.text,
-          state: _state.text,
-          contact: _contact.text,
-          country: _country.text,
-          email: _email.text,
-          fax: _fax.text,
-          phone: _phone.text,
-          taxId: _taxId.text,
-          title: _title.text,
-          fmcsa: _fmcsa.text);
-      bool isTrue = _utils.isValid();
-      if (isTrue) {
-        print("inside if true ${_utils.isValid()}");
-        print("fmcsa: ${_utils.fmcsa}");
+      if (checkFields()) {
         _isButtonEnabled = true;
       } else {
-        print("inside if false ${_utils.isValid()}");
-        print("fmcsa: ${_utils.fmcsa}");
-
         _isButtonEnabled = false;
       }
     });
@@ -176,20 +176,25 @@ class _CompanyWidgetState extends State<CompanyWidget> {
                 onPressed: !_isButtonEnabled
                     ? null
                     : () {
-                        // var data = CompanyDetailsData(
-                        //     companyName: _company.text,
-                        //     zipcode: int.parse(_zipcode.text),
-                        //     street: _street.text,
-                        //     city: _city.text,
-                        //     country: _country.text,
-                        //     state: _state.text,
-                        //     contact: _contact.text,
-                        //     title: _title.text,
-                        //     phone: _phone.text,
-                        //     fax: _fax.text,
-                        //     email: _email.text,
-                        //     taxId: _taxId.text,
-                        //     fmcsa: _fmcsa.text);
+                        if (checkFields()) {
+                          var data = CompanyDetailsData(
+                              companyName: _company.text,
+                              zipcode: int.parse(_zipcode.text),
+                              street: _street.text,
+                              city: _city.text,
+                              country: _country.text,
+                              state: _state.text,
+                              contact: _contact.text,
+                              title: _title.text,
+                              phone: _phone.text,
+                              fax: _fax.text,
+                              email: _email.text,
+                              taxId: _taxId.text,
+                              fmcsa: _fmcsa.text);
+                          print("enter");
+                        } else {
+                          print("do not enter");
+                        }
                       },
                 child: Text(
                   "Next",
