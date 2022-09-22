@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:truckassure/widgets/default/image_container.dart';
 import 'package:truckassure/widgets/default/title_container.dart';
 import 'package:truckassure/widgets/default/text.dart';
+import 'package:truckassure/utils/utils.dart';
 
 class CompanyWidget extends StatefulWidget {
   @override
@@ -32,10 +33,29 @@ class _CompanyWidgetState extends State<CompanyWidget> {
 
   void onSubmit() {
     setState(() {
-      if (_company.text != null && _company.text.isNotEmpty) {
-        print("${_company.text}");
+      Utils _utils = Utils(
+          company: _company.text,
+          zipcode: _zipcode.text,
+          street: _street.text,
+          city: _city.text,
+          state: _state.text,
+          contact: _contact.text,
+          country: _country.text,
+          email: _email.text,
+          fax: _fax.text,
+          phone: _phone.text,
+          taxId: _taxId.text,
+          title: _title.text,
+          fmcsa: _fmcsa.text);
+      bool isTrue = _utils.isValid();
+      if (isTrue) {
+        print("inside if true ${_utils.isValid()}");
+        print("fmcsa: ${_utils.fmcsa}");
         _isButtonEnabled = true;
       } else {
+        print("inside if false ${_utils.isValid()}");
+        print("fmcsa: ${_utils.fmcsa}");
+
         _isButtonEnabled = false;
       }
     });
@@ -100,40 +120,49 @@ class _CompanyWidgetState extends State<CompanyWidget> {
                 label: "Contact",
                 controller: _contact,
                 keyboard: "text",
+                result: onSubmit,
               ),
               TextFieldWidget(
                 hint: null,
                 label: "Title",
                 controller: _title,
                 keyboard: "text",
+                result: onSubmit,
               ),
               TextFieldWidget(
                 hint: "+1-555-xxx-xxx-x",
                 label: "Phone",
                 controller: _phone,
                 keyboard: "number",
+                result: onSubmit,
               ),
               TextFieldWidget(
                 hint: "+1-555-xxx-xxx-x",
                 label: "Fax",
                 controller: _fax,
                 keyboard: "number",
+                result: onSubmit,
               ),
               TextFieldWidget(
                 label: "Email",
                 controller: _email,
                 keyboard: "email",
+                result: onSubmit,
               ),
               TextFieldWidget(
-                  hint: "9xx-xx-xxxx",
-                  label: "Tax ID",
-                  controller: _taxId,
-                  keyboard: "number"),
+                hint: "9xx-xx-xxxx",
+                label: "Tax ID",
+                controller: _taxId,
+                keyboard: "number",
+                result: onSubmit,
+              ),
               TextFieldWidget(
-                  hint: "FMCSA MC#",
-                  label: "FMCSA MC#",
-                  controller: _fmcsa,
-                  keyboard: "text")
+                hint: "FMCSA MC#",
+                label: "FMCSA MC#",
+                controller: _fmcsa,
+                keyboard: "text",
+                result: onSubmit,
+              )
             ],
           ),
         )),
