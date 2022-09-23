@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:truckassure/models/drivers_details_data.dart';
 import 'package:truckassure/widgets/company_widget.dart';
 import 'package:truckassure/widgets/drivers_details_widget.dart';
+import 'package:truckassure/widgets/drivers_list.dart';
 
 void main() {
   runApp(MyApp());
@@ -39,6 +41,16 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(child: /*CompanyWidget()*/ DriversDetails()));
+        body: SafeArea(
+            child: /*CompanyWidget()*/ DriversList(
+      list: [
+        DriversDetailsData(
+            name: "Andrey", dateOfBirth: "07/31/1979", license: "123456"),
+        DriversDetailsData(
+            name: "Elton John Malkovich",
+            dateOfBirth: "07/31/1979",
+            license: "123456")
+      ],
+    )));
   }
 }
