@@ -35,7 +35,7 @@ class _CompanyWidgetState extends State<CompanyWidget> {
   }
 
   bool checkFields() {
-    return _utils.isValid(
+    return _utils.isCompanyValid(
         _company.text,
         _zipcode.text,
         _street.text,

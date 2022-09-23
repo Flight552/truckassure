@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:truckassure/widgets/company_widget.dart';
+import 'package:truckassure/widgets/drivers_details_widget.dart';
 
 void main() {
   runApp(MyApp());
@@ -37,6 +38,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: SafeArea(child: CompanyWidget()));
+    return Scaffold(
+        body: SafeArea(child: /*CompanyWidget()*/ DriversDetails()));
   }
 }

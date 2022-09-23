@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Utils {
-  bool isValid(
+  bool isCompanyValid(
       String company,
       String zipcode,
       String street,
@@ -43,6 +43,18 @@ class Utils {
         email.isNotEmpty &&
         fmcsa != null &&
         fmcsa.isNotEmpty) {
+      return true;
+    }
+    return false;
+  }
+
+  bool isDriverValid(String name, String date, String license) {
+    if (name != null &&
+        name.isNotEmpty &&
+        date != null &&
+        date.isNotEmpty &&
+        license != null &&
+        license.isNotEmpty) {
       return true;
     }
     return false;
