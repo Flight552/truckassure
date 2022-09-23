@@ -55,7 +55,7 @@ class _DriversDetailsState extends State<DriversDetails> {
               result: onSubmit,
             ),
             TextFieldWidget(
-              hint: "12/31/2023",
+              hint: "MM/DD/YYYY",
               label: "Date of Birth",
               controller: _date,
               keyboard: "text",
