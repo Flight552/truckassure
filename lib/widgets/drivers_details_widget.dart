@@ -90,7 +90,7 @@ class _DriversDetailsState extends State<DriversDetails> {
                         }
                       },
                 child: Text(
-                  "Next",
+                  "Add",
                   style: TextStyle(color: Colors.white),
                 )))
       ]),
