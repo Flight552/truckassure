@@ -23,13 +23,13 @@ class _DriversDetailsState extends State<DriversDetails> {
     _isEnabled = false;
   }
 
-  bool onResultCheck() {
+  bool _onResultCheck() {
     return (_utils.isDriverValid(_name.text, _date.text, _license.text));
   }
 
   void onSubmit() {
     setState(() {
-      if (onResultCheck()) {
+      if (_onResultCheck()) {
         _isEnabled = true;
       } else {
         _isEnabled = false;
@@ -79,7 +79,7 @@ class _DriversDetailsState extends State<DriversDetails> {
                 onPressed: !_isEnabled
                     ? null
                     : () {
-                        if (onResultCheck()) {
+                        if (_onResultCheck()) {
                           var data = DriversDetailsData(
                               name: _name.text,
                               dateOfBirth: _date.text,

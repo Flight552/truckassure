@@ -59,4 +59,19 @@ class Utils {
     }
     return false;
   }
+
+  bool isVehicleValid(
+      String vin, String modelYear, String makeModel, String type) {
+    if (vin != null &&
+        vin.isNotEmpty &&
+        modelYear != null &&
+        modelYear.isNotEmpty &&
+        makeModel != null &&
+        makeModel.isNotEmpty &&
+        type != null &&
+        type.isNotEmpty) {
+      return true;
+    }
+    return false;
+  }
 }
