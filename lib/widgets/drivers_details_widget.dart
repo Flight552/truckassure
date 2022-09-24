@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:truckassure/utils/utils.dart';
 import 'package:truckassure/widgets/default/image_container.dart';
-import 'package:truckassure/widgets/default/text.dart';
+import 'package:truckassure/widgets/default/text_field.dart';
 import 'package:truckassure/widgets/default/title_container.dart';
 import 'package:truckassure/models/drivers_details_data.dart';
 

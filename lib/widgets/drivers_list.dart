@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:truckassure/models/drivers_details_data.dart';
 import 'package:truckassure/widgets/default/image_container.dart';
+import 'package:truckassure/widgets/default/text_simple.dart';
 import 'package:truckassure/widgets/default/title_container.dart';
-import 'package:truckassure/widgets/default/text.dart';
 
 class DriversList extends StatelessWidget {
   final List<DriversDetailsData> list;
@@ -33,59 +33,51 @@ class DriversList extends StatelessWidget {
                                           child: Column(
                                             children: [
                                               ListTile(
-                                                leading: Text(
-                                                  "Name:",
-                                                  style: TextStyle(
-                                                      fontSize: 20,
-                                                      color: Colors.black),
-                                                ),
-                                                title: Text(
-                                                  "${list[index].name}",
-                                                  textAlign: TextAlign.center,
-                                                  style: TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 20,
-                                                      fontWeight:
-                                                          FontWeight.bold),
+                                                leading: Container(
+                                                    width: 130,
+                                                    child: SimpleText(
+                                                        text: "Name:",
+                                                        size: 20,
+                                                        weight: null)),
+                                                title: SimpleText(
+                                                  text: "${list[index].name}",
+                                                  size: 20,
+                                                  weight: FontWeight.bold,
                                                 ),
                                                 trailing: IconButton(
                                                   icon: Icon(Icons.delete),
-                                                  color: Colors.red,
+                                                  color: Colors.red[900],
+                                                  splashColor: Colors.red,
+                                                  onPressed: () {},
                                                 ),
                                               ),
                                               ListTile(
-                                                leading: Text(
-                                                  "Date of birth:",
-                                                  textAlign: TextAlign.end,
-                                                  style: TextStyle(
-                                                      fontSize: 20,
-                                                      color: Colors.black),
-                                                ),
-                                                title: Text(
-                                                  "${list[index].dateOfBirth}",
-                                                  style: TextStyle(
-                                                      fontSize: 20,
-                                                      color: Colors.black,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                ),
-                                              ),
+                                                  leading: Container(
+                                                      width: 130,
+                                                      child: SimpleText(
+                                                          text:
+                                                              "Date of birth:",
+                                                          size: 20,
+                                                          weight: null)),
+                                                  title: SimpleText(
+                                                    text:
+                                                        "${list[index].dateOfBirth}",
+                                                    size: 20,
+                                                    weight: FontWeight.bold,
+                                                  )),
                                               ListTile(
-                                                leading: Text(
-                                                  "License:",
-                                                  style: TextStyle(
-                                                      fontSize: 20,
-                                                      color: Colors.black),
-                                                ),
-                                                title: Text(
-                                                  "${list[index].license}",
-                                                  style: TextStyle(
-                                                      fontSize: 20,
-                                                      color: Colors.black,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                ),
-                                              )
+                                                  leading: Container(
+                                                      width: 130,
+                                                      child: SimpleText(
+                                                          text: "License:",
+                                                          size: 20,
+                                                          weight: null)),
+                                                  title: SimpleText(
+                                                    text:
+                                                        "${list[index].license}",
+                                                    size: 20,
+                                                    weight: FontWeight.bold,
+                                                  ))
                                             ],
                                           )),
                                     ],
@@ -100,7 +92,11 @@ class DriversList extends StatelessWidget {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-      floatingActionButton: FloatingActionButton(child: Icon(Icons.add)),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        autofocus: false,
+        onPressed: () {},
+      ),
     );
   }
 }
