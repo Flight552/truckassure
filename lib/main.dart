@@ -3,7 +3,8 @@ import 'package:truckassure/models/drivers_details_data.dart';
 import 'package:truckassure/models/vehicles_data.dart';
 import 'package:truckassure/widgets/company_widget.dart';
 import 'package:truckassure/widgets/drivers_details_widget.dart';
-import 'package:truckassure/widgets/drivers_list.dart';
+import 'package:truckassure/widgets/drivers_list_widget.dart';
+import 'package:truckassure/widgets/vehicle_list_widget.dart';
 import 'package:truckassure/widgets/vehicles_widget.dart';
 
 void main() {
@@ -43,17 +44,33 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(child: Vehicles()
-            // child: CompanyWidget()
-            // child: DriversDetails()
-            //         child: DriversList(
+        body: SafeArea(
+            //         child: VehiclesList(
             //   list: [
-            //     DriversDetailsData(
-            //         name: "Ozzy Osborne", dateOfBirth: "07/31/1979", license: "123456"),
-            //     DriversDetailsData(
-            //         name: "Curt Cobain", dateOfBirth: "07/31/1979", license: "123456")
+            //     VehiclesData(
+            //         vin: "123-aadfdsaaadf",
+            //         makeModel: "Toyota Fortuner",
+            //         modelYear: "2022",
+            //         type: "CrossOver"),
+            //     VehiclesData(
+            //         vin: "432-aadfdsfsdfsdfsdfsdaaadf",
+            //         makeModel: "Mersedes CRV",
+            //         modelYear: "2022",
+            //         type: "CrossOver")
             //   ],
             // )
-            ));
+            // child: Vehicles()
+            // child: CompanyWidget()
+            // child: DriversDetails()
+            child: DriversList(
+      list: [
+        DriversDetailsData(
+            name: "Ozzy Osborne", dateOfBirth: "07/31/1979", license: "123456"),
+        DriversDetailsData(
+            name: "Curt Donald Cobain",
+            dateOfBirth: "07/31/1979",
+            license: "123456")
+      ],
+    )));
   }
 }
