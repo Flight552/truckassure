@@ -42,8 +42,6 @@ class _MembershipDetailsState extends State<MembershipDetails> {
       } else {
         _textNotifier.changeText("unknown");
       }
-
-      print(_textNotifier.myText);
     }
   }
 
@@ -102,11 +100,15 @@ class _MembershipDetailsState extends State<MembershipDetails> {
                           SizedBox(
                             height: 20,
                           ),
-                          SimpleText(
-                            text: _textNotifier.myText,
-                            size: 30,
-                            weight: FontWeight.bold,
-                          )
+                          Container(
+                              child: AnimatedBuilder(
+                            animation: _textNotifier,
+                            builder: (_, __) => SimpleText(
+                              text: _textNotifier.myText,
+                              size: 30,
+                              weight: FontWeight.bold,
+                            ),
+                          ))
                         ]))),
             Container(
                 alignment: Alignment.bottomCenter,
