@@ -6,6 +6,7 @@ import 'package:truckassure/widgets/drivers_details_widget.dart';
 import 'package:truckassure/widgets/drivers_list_widget.dart';
 import 'package:truckassure/widgets/vehicle_list_widget.dart';
 import 'package:truckassure/widgets/vehicles_widget.dart';
+import 'package:truckassure/widgets/membership_widget.dart';
 
 void main() {
   runApp(MyApp());
@@ -43,7 +44,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: SafeArea(child: Vehicles()));
+    return Scaffold(body: SafeArea(child: MembershipDetails()));
   }
 }
 
@@ -64,6 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
             // child: Vehicles()
             // child: CompanyWidget()
             // child: DriversDetails()
+            // child: MembershipDetails()
     //                child: DriversList(
     //   list: [
     //     DriversDetailsData(

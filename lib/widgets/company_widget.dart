@@ -129,7 +129,10 @@ class _CompanyWidgetState extends State<CompanyWidget> {
                           size: 15,
                           weight: FontWeight.bold,
                         ),
-                        DropDownItems(choice: "country")
+                        DropDownItems(
+                          choice: "country",
+                          getAmount: null,
+                        )
                       ])),
               Container(
                   padding: EdgeInsets.only(left: 10),
@@ -142,7 +145,10 @@ class _CompanyWidgetState extends State<CompanyWidget> {
                           size: 15,
                           weight: FontWeight.bold,
                         ),
-                        DropDownItems(choice: "states")
+                        DropDownItems(
+                          choice: "states",
+                          getAmount: null,
+                        )
                       ])),
               TextFieldWidget(
                 label: "Contact",

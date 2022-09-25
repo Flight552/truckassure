@@ -5,6 +5,7 @@ class SimpleText extends StatelessWidget {
   final double size;
   final FontWeight weight;
   SimpleText({this.text, this.size, this.weight});
+
   @override
   Widget build(BuildContext context) {
     return Container(

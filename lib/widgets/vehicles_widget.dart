@@ -80,7 +80,10 @@ class _VehiclesData extends State<Vehicles> {
                           size: 15,
                           weight: FontWeight.bold,
                         ),
-                        DropDownItems(choice: "types")
+                        DropDownItems(
+                          choice: "types",
+                          getAmount: null,
+                        )
                       ]))
             ],
           ))),

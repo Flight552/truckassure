@@ -3,7 +3,10 @@ import 'package:truckassure/widgets/default/text_simple.dart';
 
 class DropDownItems extends StatefulWidget {
   final String choice;
-  DropDownItems({this.choice});
+  String _select;
+  final Function(String) getAmount;
+
+  DropDownItems({this.choice, this.getAmount});
   static const _statesItems = [
     'Alabama',
     'Alaska',
@@ -56,13 +59,14 @@ class DropDownItems extends StatefulWidget {
     'Wisconsin',
     'Wyoming',
   ];
-
   static const _countries = [
     "US",
     "Canada",
   ];
-
   static const _typeVehicle = ["Car", "Tractor", "Truck"];
+  static const _limit = ["\$100,000", "\$250,000"];
+  static const _deductible = ["\$250", "\$500"];
+
   final List<DropdownMenuItem<String>> _dropMenuItemsStates = _statesItems
       .map((value) => DropdownMenuItem<String>(
             value: value,
@@ -84,8 +88,57 @@ class DropDownItems extends StatefulWidget {
           ))
       .toList();
 
+  final List<DropdownMenuItem<String>> _dropMenuItemsLimit =
+      _limit.map((value) {
+    return DropdownMenuItem<String>(
+      value: value,
+      child: SimpleText(text: value, size: 15, weight: null),
+    );
+  }).toList();
+
+  final List<DropdownMenuItem<String>> _dropMenuItemsDeductible = _deductible
+      .map((value) => DropdownMenuItem<String>(
+            value: value,
+            child: SimpleText(text: value, size: 15, weight: null),
+          ))
+      .toList();
+
+  List<DropdownMenuItem<String>> getList(String _choice) {
+    switch (_choice) {
+      case "country":
+        {
+          return _dropMenuItemsCountries;
+        }
+        break;
+      case "states":
+        {
+          return _dropMenuItemsStates;
+        }
+        break;
+      case "types":
+        {
+          return _dropMenuItemsTypes;
+        }
+        break;
+      case "limit":
+        {
+          return _dropMenuItemsLimit;
+        }
+        break;
+      case "deductible":
+        {
+          return _dropMenuItemsDeductible;
+        }
+        break;
+      default:
+        {
+          return [];
+        }
+        break;
+    }
+  }
+
   State<StatefulWidget> createState() => new _DropDownState();
-  String _select;
 }
 
 class _DropDownState extends State<DropDownItems> {
@@ -97,14 +150,13 @@ class _DropDownState extends State<DropDownItems> {
             value: widget._select,
             hint: SimpleText(text: "Choose", size: 15, weight: null),
             onChanged: (values) {
+              if (widget.getAmount != null) {
+                widget.getAmount(values);
+              }
               setState(() {
                 widget._select = values;
               });
             },
-            items: widget.choice == "country"
-                ? widget._dropMenuItemsCountries
-                : (widget.choice == "states"
-                    ? widget._dropMenuItemsStates
-                    : widget._dropMenuItemsTypes)));
+            items: widget.getList(widget.choice)));
   }
 }
