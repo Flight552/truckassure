@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:truckassure/widgets/default/drop_down_states.dart';
 import 'package:truckassure/widgets/default/image_container.dart';
+import 'package:truckassure/widgets/default/text_simple.dart';
 import 'package:truckassure/widgets/default/title_container.dart';
 import 'package:truckassure/widgets/default/text_field.dart';
 import 'package:truckassure/utils/utils.dart';
@@ -116,22 +118,32 @@ class _CompanyWidgetState extends State<CompanyWidget> {
                 result: onSubmit,
                 formatterList: null,
               ),
-              TextFieldWidget(
-                hint: null,
-                label: "Country",
-                controller: _country,
-                keyboard: "text",
-                result: onSubmit,
-                formatterList: null,
-              ),
-              TextFieldWidget(
-                hint: null,
-                label: "State",
-                controller: _state,
-                keyboard: "text",
-                result: onSubmit,
-                formatterList: null,
-              ),
+              Container(
+                  padding: EdgeInsets.only(left: 10, top: 20),
+                  alignment: Alignment.centerLeft,
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SimpleText(
+                          text: "Country",
+                          size: 15,
+                          weight: FontWeight.bold,
+                        ),
+                        DropDownItems(choice: "country")
+                      ])),
+              Container(
+                  padding: EdgeInsets.only(left: 10),
+                  alignment: Alignment.centerLeft,
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SimpleText(
+                          text: "States",
+                          size: 15,
+                          weight: FontWeight.bold,
+                        ),
+                        DropDownItems(choice: "states")
+                      ])),
               TextFieldWidget(
                 label: "Contact",
                 controller: _contact,

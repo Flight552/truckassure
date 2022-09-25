@@ -5,6 +5,9 @@ import 'package:truckassure/widgets/default/title_container.dart';
 import 'package:truckassure/utils/utils.dart';
 import 'package:truckassure/widgets/default/text_field.dart';
 
+import 'default/drop_down_states.dart';
+import 'default/text_simple.dart';
+
 class Vehicles extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => new _VehiclesData();
@@ -66,16 +69,23 @@ class _VehiclesData extends State<Vehicles> {
                 keyboard: "text",
                 result: onSubmit,
               ),
-              TextFieldWidget(
-                label: "Type",
-                controller: _type,
-                keyboard: "text",
-                result: onSubmit,
-              ),
+              Container(
+                  padding: EdgeInsets.only(left: 10, top: 20),
+                  alignment: Alignment.centerLeft,
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SimpleText(
+                          text: "Type",
+                          size: 15,
+                          weight: FontWeight.bold,
+                        ),
+                        DropDownItems(choice: "types")
+                      ]))
             ],
           ))),
           Container(
-              margin: EdgeInsets.only(bottom: 20, top: 20),
+              margin: EdgeInsets.only(bottom: 20),
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       elevation: 4,
