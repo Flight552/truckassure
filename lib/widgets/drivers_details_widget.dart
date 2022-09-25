@@ -4,6 +4,7 @@ import 'package:truckassure/widgets/default/image_container.dart';
 import 'package:truckassure/widgets/default/text_field.dart';
 import 'package:truckassure/widgets/default/title_container.dart';
 import 'package:truckassure/models/drivers_details_data.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class DriversDetails extends StatefulWidget {
   @override
@@ -15,6 +16,11 @@ class _DriversDetailsState extends State<DriversDetails> {
   final _date = TextEditingController();
   final _license = TextEditingController();
   bool _isEnabled;
+
+  var dateFormatter = new MaskTextInputFormatter(
+      mask: '##/##/####',
+      filter: {"#": RegExp(r'[0-9]')},
+      type: MaskAutoCompletionType.lazy);
 
   Utils _utils = Utils();
 
@@ -53,6 +59,7 @@ class _DriversDetailsState extends State<DriversDetails> {
               controller: _name,
               keyboard: "text",
               result: onSubmit,
+              formatterList: null,
             ),
             TextFieldWidget(
               hint: "MM/DD/YYYY",
@@ -60,12 +67,14 @@ class _DriversDetailsState extends State<DriversDetails> {
               controller: _date,
               keyboard: "text",
               result: onSubmit,
+              formatterList: [dateFormatter],
             ),
             TextFieldWidget(
               label: "License",
               controller: _license,
               keyboard: "text",
               result: onSubmit,
+              formatterList: null,
             )
           ],
         )),

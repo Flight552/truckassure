@@ -43,9 +43,11 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: SafeArea(
-            //         child: VehiclesList(
+    return Scaffold(body: SafeArea(child: DriversDetails()));
+  }
+}
+
+//         child: VehiclesList(
             //   list: [
             //     VehiclesData(
             //         vin: "123-aadfdsaaadf",
@@ -62,15 +64,13 @@ class _MyHomePageState extends State<MyHomePage> {
             // child: Vehicles()
             // child: CompanyWidget()
             // child: DriversDetails()
-            child: DriversList(
-      list: [
-        DriversDetailsData(
-            name: "Ozzy Osborne", dateOfBirth: "07/31/1979", license: "123456"),
-        DriversDetailsData(
-            name: "Curt Donald Cobain",
-            dateOfBirth: "07/31/1979",
-            license: "123456")
-      ],
-    )));
-  }
-}
+    //                child: DriversList(
+    //   list: [
+    //     DriversDetailsData(
+    //         name: "Ozzy Osborne", dateOfBirth: "07/31/1979", license: "123456"),
+    //     DriversDetailsData(
+    //         name: "Curt Donald Cobain",
+    //         dateOfBirth: "07/31/1979",
+    //         license: "123456")
+    //   ],
+    // )

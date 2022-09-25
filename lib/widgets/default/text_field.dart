@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class TextFieldWidget extends StatelessWidget {
   final String hint;
   final String label;
   final TextEditingController controller;
   final String keyboard;
+  final List<TextInputFormatter> formatterList;
   final Function() result;
 
   TextFieldWidget(
-      {this.hint, this.label, this.controller, this.keyboard, this.result});
+      {this.hint,
+      this.label,
+      this.controller,
+      this.keyboard,
+      this.result,
+      this.formatterList});
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +37,7 @@ class TextFieldWidget extends StatelessWidget {
                     : TextInputType.text),
             controller: this.controller,
             autocorrect: false,
+            inputFormatters: formatterList != null ? formatterList : [],
             onSubmitted: (_) {
               result();
             }));

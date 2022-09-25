@@ -4,6 +4,7 @@ import 'package:truckassure/widgets/default/title_container.dart';
 import 'package:truckassure/widgets/default/text_field.dart';
 import 'package:truckassure/utils/utils.dart';
 import 'package:truckassure/models/company_details_data.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class CompanyWidget extends StatefulWidget {
   @override
@@ -26,6 +27,15 @@ class _CompanyWidgetState extends State<CompanyWidget> {
   final _email = TextEditingController();
   final _taxId = TextEditingController();
   final _fmcsa = TextEditingController();
+
+  var phoneFormatter = new MaskTextInputFormatter(
+      mask: '+# (###) ###-###-#',
+      filter: {"#": RegExp(r'[0-9]')},
+      type: MaskAutoCompletionType.lazy);
+  var taxFormatter = new MaskTextInputFormatter(
+      mask: '###-##-####',
+      filter: {"#": RegExp(r'[0-9]')},
+      type: MaskAutoCompletionType.lazy);
 
   bool _isButtonEnabled;
 
@@ -80,6 +90,7 @@ class _CompanyWidgetState extends State<CompanyWidget> {
                 controller: _company,
                 keyboard: "text",
                 result: onSubmit,
+                formatterList: null,
               ),
               TextFieldWidget(
                 hint: null,
@@ -87,6 +98,7 @@ class _CompanyWidgetState extends State<CompanyWidget> {
                 controller: _zipcode,
                 keyboard: "number",
                 result: onSubmit,
+                formatterList: [],
               ),
               TextFieldWidget(
                 hint: null,
@@ -94,6 +106,7 @@ class _CompanyWidgetState extends State<CompanyWidget> {
                 controller: _street,
                 keyboard: "text",
                 result: onSubmit,
+                formatterList: null,
               ),
               TextFieldWidget(
                 hint: null,
@@ -101,6 +114,7 @@ class _CompanyWidgetState extends State<CompanyWidget> {
                 controller: _city,
                 keyboard: "text",
                 result: onSubmit,
+                formatterList: null,
               ),
               TextFieldWidget(
                 hint: null,
@@ -108,6 +122,7 @@ class _CompanyWidgetState extends State<CompanyWidget> {
                 controller: _country,
                 keyboard: "text",
                 result: onSubmit,
+                formatterList: null,
               ),
               TextFieldWidget(
                 hint: null,
@@ -115,12 +130,14 @@ class _CompanyWidgetState extends State<CompanyWidget> {
                 controller: _state,
                 keyboard: "text",
                 result: onSubmit,
+                formatterList: null,
               ),
               TextFieldWidget(
                 label: "Contact",
                 controller: _contact,
                 keyboard: "text",
                 result: onSubmit,
+                formatterList: null,
               ),
               TextFieldWidget(
                 hint: null,
@@ -128,6 +145,7 @@ class _CompanyWidgetState extends State<CompanyWidget> {
                 controller: _title,
                 keyboard: "text",
                 result: onSubmit,
+                formatterList: null,
               ),
               TextFieldWidget(
                 hint: "+1-555-xxx-xxx-x",
@@ -135,6 +153,7 @@ class _CompanyWidgetState extends State<CompanyWidget> {
                 controller: _phone,
                 keyboard: "number",
                 result: onSubmit,
+                formatterList: [phoneFormatter],
               ),
               TextFieldWidget(
                 hint: "+1-555-xxx-xxx-x",
@@ -142,12 +161,14 @@ class _CompanyWidgetState extends State<CompanyWidget> {
                 controller: _fax,
                 keyboard: "number",
                 result: onSubmit,
+                formatterList: [phoneFormatter],
               ),
               TextFieldWidget(
                 label: "Email",
                 controller: _email,
                 keyboard: "email",
                 result: onSubmit,
+                formatterList: null,
               ),
               TextFieldWidget(
                 hint: "9xx-xx-xxxx",
@@ -155,6 +176,7 @@ class _CompanyWidgetState extends State<CompanyWidget> {
                 controller: _taxId,
                 keyboard: "number",
                 result: onSubmit,
+                formatterList: [taxFormatter],
               ),
               TextFieldWidget(
                 hint: "FMCSA MC#",
@@ -162,6 +184,7 @@ class _CompanyWidgetState extends State<CompanyWidget> {
                 controller: _fmcsa,
                 keyboard: "text",
                 result: onSubmit,
+                formatterList: null,
               )
             ],
           ),
