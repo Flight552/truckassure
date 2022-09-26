@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:truckassure/models/drivers_details_data.dart';
 import 'package:truckassure/models/vehicles_data.dart';
 import 'package:truckassure/widgets/company_widget.dart';
+import 'package:truckassure/widgets/credit_card.dart';
 import 'package:truckassure/widgets/drivers_details_widget.dart';
 import 'package:truckassure/widgets/drivers_list_widget.dart';
 import 'package:truckassure/widgets/success.dart';
@@ -45,7 +46,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: SafeArea(child: MembershipDetails()));
+    return Scaffold(body: SafeArea(child: CreditCard()));
   }
 }
 
