@@ -131,6 +131,7 @@ class _CompanyWidgetState extends State<CompanyWidget> {
                         ),
                         DropDownItems(
                           choice: "country",
+                          hint: "Choose country",
                           getAmount: null,
                         )
                       ])),
@@ -147,6 +148,7 @@ class _CompanyWidgetState extends State<CompanyWidget> {
                         ),
                         DropDownItems(
                           choice: "states",
+                          hint: "Choose state",
                           getAmount: null,
                         )
                       ])),

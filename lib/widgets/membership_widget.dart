@@ -70,7 +70,7 @@ class _MembershipDetailsState extends State<MembershipDetails> {
                         children: [
                           SimpleText(
                             text: "Limit:",
-                            size: 30,
+                            size: 25,
                             weight: FontWeight.bold,
                           ),
                           DropDownItems(
@@ -82,7 +82,7 @@ class _MembershipDetailsState extends State<MembershipDetails> {
                           ),
                           SimpleText(
                             text: "Deductible:",
-                            size: 30,
+                            size: 25,
                             weight: FontWeight.bold,
                           ),
                           DropDownItems(
@@ -94,7 +94,7 @@ class _MembershipDetailsState extends State<MembershipDetails> {
                           ),
                           SimpleText(
                             text: "Membership fee:",
-                            size: 30,
+                            size: 25,
                             weight: FontWeight.bold,
                           ),
                           SizedBox(
@@ -105,7 +105,7 @@ class _MembershipDetailsState extends State<MembershipDetails> {
                             animation: _textNotifier,
                             builder: (_, __) => SimpleText(
                               text: _textNotifier.myText,
-                              size: 30,
+                              size: 25,
                               weight: FontWeight.bold,
                             ),
                           ))

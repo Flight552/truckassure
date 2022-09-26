@@ -82,6 +82,7 @@ class _VehiclesData extends State<Vehicles> {
                         ),
                         DropDownItems(
                           choice: "types",
+                          hint: "Choose type",
                           getAmount: null,
                         )
                       ]))

@@ -4,9 +4,10 @@ import 'package:truckassure/widgets/default/text_simple.dart';
 class DropDownItems extends StatefulWidget {
   final String choice;
   String _select;
+  final String hint;
   final Function(String) getAmount;
 
-  DropDownItems({this.choice, this.getAmount});
+  DropDownItems({this.choice, this.hint, this.getAmount});
   static const _statesItems = [
     'Alabama',
     'Alaska',
@@ -66,6 +67,7 @@ class DropDownItems extends StatefulWidget {
   static const _typeVehicle = ["Car", "Tractor", "Truck"];
   static const _limit = ["\$100,000", "\$250,000"];
   static const _deductible = ["\$250", "\$500"];
+  String _choice = "Choose";
 
   final List<DropdownMenuItem<String>> _dropMenuItemsStates = _statesItems
       .map((value) => DropdownMenuItem<String>(
@@ -148,7 +150,10 @@ class _DropDownState extends State<DropDownItems> {
         padding: EdgeInsets.only(left: 10),
         child: DropdownButton(
             value: widget._select,
-            hint: SimpleText(text: "Choose", size: 15, weight: null),
+            hint: SimpleText(
+                text: widget.hint != null ? widget.hint : "Choose",
+                size: 15,
+                weight: null),
             onChanged: (values) {
               if (widget.getAmount != null) {
                 widget.getAmount(values);
