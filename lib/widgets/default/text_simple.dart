@@ -4,7 +4,7 @@ class SimpleText extends StatefulWidget {
   final String text;
   final double size;
   final FontWeight weight;
-  SimpleText({this.text, this.size, this.weight});
+  const SimpleText({this.text, this.size, this.weight});
 
   @override
   State<StatefulWidget> createState() => _SimpleText();

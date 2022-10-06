@@ -3,11 +3,17 @@ import 'package:truckassure/widgets/default/text_simple.dart';
 
 class DropDownItems extends StatefulWidget {
   final String choice;
-  String _select;
   final String hint;
   final Function(String) getAmount;
 
   DropDownItems({this.choice, this.hint, this.getAmount});
+
+  State<StatefulWidget> createState() => new _DropDownState();
+}
+
+class _DropDownState extends State<DropDownItems> {
+  String _select;
+
   static const _statesItems = [
     'Alabama',
     'Alaska',
@@ -145,18 +151,14 @@ class DropDownItems extends StatefulWidget {
     }
   }
 
-  State<StatefulWidget> createState() => new _DropDownState();
-}
-
-class _DropDownState extends State<DropDownItems> {
   @override
   Widget build(BuildContext context) {
     return Container(
         padding: const EdgeInsets.only(left: 10),
         child: DropdownButton(
-            value: widget._select,
+            value: _select,
             hint: SimpleText(
-                text: widget.hint != null ? widget.hint : widget._choice,
+                text: widget.hint != null ? widget.hint : _choice,
                 size: 15,
                 weight: null),
             onChanged: (values) {
@@ -164,9 +166,9 @@ class _DropDownState extends State<DropDownItems> {
                 widget.getAmount(values);
               }
               setState(() {
-                widget._select = values;
+                _select = values;
               });
             },
-            items: widget.getList(widget.choice)));
+            items: getList(widget.choice)));
   }
 }

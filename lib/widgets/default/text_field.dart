@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class TextFieldWidget extends StatelessWidget {
+class TextFieldWidget extends StatefulWidget {
   final String hint;
   final String label;
   final TextEditingController controller;
@@ -18,28 +18,34 @@ class TextFieldWidget extends StatelessWidget {
       this.formatterList});
 
   @override
+  _TextFieldWidgetState createState() => _TextFieldWidgetState();
+}
+
+class _TextFieldWidgetState extends State<TextFieldWidget> {
+  @override
   Widget build(BuildContext context) {
     return Padding(
         padding: const EdgeInsets.all(10),
         child: TextField(
             decoration: InputDecoration(
-                hintText: hint == null ? null : hint,
-                labelText: label,
+                hintText: widget.hint == null ? null : widget.hint,
+                labelText: widget.label,
                 labelStyle: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
                     color: Theme.of(context).primaryColorDark)),
             style: const TextStyle(color: Colors.black, fontSize: 25),
-            keyboardType: keyboard == "number"
+            keyboardType: widget.keyboard == "number"
                 ? TextInputType.number
-                : (keyboard == "email"
+                : (widget.keyboard == "email"
                     ? TextInputType.emailAddress
                     : TextInputType.text),
-            controller: this.controller,
+            controller: this.widget.controller,
             autocorrect: false,
-            inputFormatters: formatterList != null ? formatterList : [],
+            inputFormatters:
+                widget.formatterList != null ? widget.formatterList : [],
             onSubmitted: (_) {
-              result();
+              widget.result();
             }));
   }
 }

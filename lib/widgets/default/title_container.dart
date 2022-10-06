@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class PageTitleContainer extends StatelessWidget {
   final String title;
-  PageTitleContainer({this.title});
+  const PageTitleContainer({this.title});
   @override
   Widget build(BuildContext context) {
     return Container(
