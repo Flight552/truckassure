@@ -8,6 +8,6 @@ class DefaultListCard extends StatelessWidget {
   DefaultListCard({this.list, this.index});
   @override
   Widget build(BuildContext context) {
-    return Card();
+    return const Card();
   }
 }

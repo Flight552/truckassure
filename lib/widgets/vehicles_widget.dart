@@ -22,6 +22,7 @@ class _VehiclesData extends State<Vehicles> {
   Utils _utils = Utils();
 
   void initState() {
+    super.initState();
     _isEnabled = false;
   }
 
@@ -70,7 +71,7 @@ class _VehiclesData extends State<Vehicles> {
                 result: onSubmit,
               ),
               Container(
-                  padding: EdgeInsets.only(left: 10, top: 20),
+                  padding: const EdgeInsets.only(left: 10, top: 20),
                   alignment: Alignment.centerLeft,
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -89,7 +90,7 @@ class _VehiclesData extends State<Vehicles> {
             ],
           ))),
           Container(
-              margin: EdgeInsets.only(bottom: 20),
+              margin: const EdgeInsets.only(bottom: 20),
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       elevation: 4,
@@ -100,6 +101,8 @@ class _VehiclesData extends State<Vehicles> {
                       : () {
                           if (_onResultCheck()) {
                             var data = VehiclesData(
+                                id: DateTime.fromMillisecondsSinceEpoch(0)
+                                    .toString(),
                                 vin: _vin.text,
                                 modelYear: _modelYear.text,
                                 makeModel: _makeModel.text,
@@ -109,7 +112,7 @@ class _VehiclesData extends State<Vehicles> {
                             print("do not enter");
                           }
                         },
-                  child: Text(
+                  child: const Text(
                     "Add",
                     style: TextStyle(color: Colors.white),
                   )))

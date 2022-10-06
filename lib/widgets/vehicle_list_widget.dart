@@ -25,13 +25,14 @@ class VehiclesList extends StatelessWidget {
                       ? ListView.builder(
                           itemBuilder: (context, index) {
                             return Card(
-                                margin: EdgeInsets.symmetric(
+                                key: ValueKey(list[index].id),
+                                margin: const EdgeInsets.symmetric(
                                     horizontal: 5, vertical: 5),
                                 child: Container(
                                   child: Column(
                                     children: [
                                       Container(
-                                          margin: EdgeInsets.all(4),
+                                          margin: const EdgeInsets.all(4),
                                           child: Column(
                                             children: [
                                               ListTile(

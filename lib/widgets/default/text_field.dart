@@ -20,7 +20,7 @@ class TextFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: TextField(
             decoration: InputDecoration(
                 hintText: hint == null ? null : hint,
@@ -29,7 +29,7 @@ class TextFieldWidget extends StatelessWidget {
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
                     color: Theme.of(context).primaryColorDark)),
-            style: TextStyle(color: Colors.black, fontSize: 25),
+            style: const TextStyle(color: Colors.black, fontSize: 25),
             keyboardType: keyboard == "number"
                 ? TextInputType.number
                 : (keyboard == "email"

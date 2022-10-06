@@ -54,7 +54,7 @@ class _MembershipDetailsState extends State<MembershipDetails> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: Column(
           children: [
             ImageContainer(),
@@ -64,7 +64,7 @@ class _MembershipDetailsState extends State<MembershipDetails> {
             Expanded(
                 child: Container(
                     alignment: Alignment.centerLeft,
-                    padding: EdgeInsets.only(top: 50),
+                    padding: const EdgeInsets.only(top: 50),
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -77,7 +77,7 @@ class _MembershipDetailsState extends State<MembershipDetails> {
                             choice: "limit",
                             getAmount: getFee,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           SimpleText(
@@ -89,7 +89,7 @@ class _MembershipDetailsState extends State<MembershipDetails> {
                             choice: "deductible",
                             getAmount: getDeductible,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 30,
                           ),
                           SimpleText(
@@ -97,7 +97,7 @@ class _MembershipDetailsState extends State<MembershipDetails> {
                             size: 25,
                             weight: FontWeight.bold,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           Container(
@@ -112,18 +112,18 @@ class _MembershipDetailsState extends State<MembershipDetails> {
                         ]))),
             Container(
                 alignment: Alignment.bottomCenter,
-                margin: EdgeInsets.only(bottom: 20),
+                margin: const EdgeInsets.only(bottom: 20),
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                         elevation: 4,
                         primary: Colors.black,
-                        minimumSize: Size.square(40)),
+                        minimumSize: const Size.square(40)),
                     onPressed: () {
                       print("Purchase Now");
                     },
                     child: Text(
                       "Purchase Now",
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                     )))
           ],
         ));

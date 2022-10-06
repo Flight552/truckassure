@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/credit_card_brand.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
-import 'package:truckassure/widgets/default/text_simple.dart';
 
 class CreditCard extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return CreditCardState();
+    return _CreditCardState();
   }
 }
 
-class CreditCardState extends State<CreditCard> {
+class _CreditCardState extends State<CreditCard> {
   String cardNumber = '';
   String expiryDate = '';
   String cardHolderName = '';
@@ -92,17 +91,17 @@ class CreditCardState extends State<CreditCard> {
                     child: Column(
                       children: <Widget>[
                         Container(
-                            margin: EdgeInsets.only(top: 10),
+                            margin: const EdgeInsets.only(top: 10),
                             alignment: Alignment.centerLeft,
                             child: ListTile(
                               leading: Text(
                                 "Payment amount: ",
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Colors.white, fontSize: 20),
                               ),
                               trailing: Text(
                                 "\$1000",
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Colors.white, fontSize: 20),
                               ),
                             )),
@@ -206,7 +205,7 @@ class CreditCardState extends State<CreditCard> {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
-                              textStyle: TextStyle(
+                              textStyle: const TextStyle(
                                   backgroundColor: const Color(0xff1b447b))),
                           child: Container(
                             margin: const EdgeInsets.all(12),

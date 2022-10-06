@@ -26,6 +26,7 @@ class _DriversDetailsState extends State<DriversDetails> {
 
   @override
   void initState() {
+    super.initState();
     _isEnabled = false;
   }
 
@@ -84,12 +85,14 @@ class _DriversDetailsState extends State<DriversDetails> {
                 style: ElevatedButton.styleFrom(
                     elevation: 4,
                     primary: Colors.black,
-                    minimumSize: Size.square(40)),
+                    minimumSize: const Size.square(40)),
                 onPressed: !_isEnabled
                     ? null
                     : () {
                         if (_onResultCheck()) {
                           var data = DriversDetailsData(
+                              id: DateTime.fromMillisecondsSinceEpoch(0)
+                                  .toString(),
                               name: _name.text,
                               dateOfBirth: _date.text,
                               license: _license.text);
@@ -98,7 +101,7 @@ class _DriversDetailsState extends State<DriversDetails> {
                           print("do not enter");
                         }
                       },
-                child: Text(
+                child: const Text(
                   "Add",
                   style: TextStyle(color: Colors.white),
                 )))

@@ -13,6 +13,7 @@ class _ButtonContainerState extends State<ButtonContainer> {
 
   @override
   void initState() {
+    super.initState();
     _isButtonDisabled = true;
     print("isEnabled: ${widget.isEnabled}");
   }
@@ -27,17 +28,17 @@ class _ButtonContainerState extends State<ButtonContainer> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.only(top: 10, bottom: 20),
+        margin: const EdgeInsets.only(top: 10, bottom: 20),
         child: ElevatedButton(
             clipBehavior: Clip.hardEdge,
             style: ElevatedButton.styleFrom(
                 elevation: 4,
                 primary: Theme.of(context).primaryColor,
-                minimumSize: Size.square(40)),
+                minimumSize: const Size.square(40)),
             onPressed: _isButtonDisabled ? null : _enable,
             child: Text(
               "Next",
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
             )));
   }
 }

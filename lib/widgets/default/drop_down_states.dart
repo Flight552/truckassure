@@ -67,10 +67,11 @@ class DropDownItems extends StatefulWidget {
   static const _typeVehicle = ["Car", "Tractor", "Truck"];
   static const _limit = ["\$100,000", "\$250,000"];
   static const _deductible = ["\$250", "\$500"];
-  String _choice = "Choose";
+  final String _choice = "Choose";
 
   final List<DropdownMenuItem<String>> _dropMenuItemsStates = _statesItems
       .map((value) => DropdownMenuItem<String>(
+            key: ValueKey(value),
             value: value,
             child: SimpleText(text: value, size: 15, weight: null),
           ))
@@ -78,6 +79,7 @@ class DropDownItems extends StatefulWidget {
 
   final List<DropdownMenuItem<String>> _dropMenuItemsCountries = _countries
       .map((value) => DropdownMenuItem<String>(
+            key: ValueKey(value),
             value: value,
             child: SimpleText(text: value, size: 15, weight: null),
           ))
@@ -85,6 +87,7 @@ class DropDownItems extends StatefulWidget {
 
   final List<DropdownMenuItem<String>> _dropMenuItemsTypes = _typeVehicle
       .map((value) => DropdownMenuItem<String>(
+            key: ValueKey(value),
             value: value,
             child: SimpleText(text: value, size: 15, weight: null),
           ))
@@ -93,6 +96,7 @@ class DropDownItems extends StatefulWidget {
   final List<DropdownMenuItem<String>> _dropMenuItemsLimit =
       _limit.map((value) {
     return DropdownMenuItem<String>(
+      key: ValueKey(value),
       value: value,
       child: SimpleText(text: value, size: 15, weight: null),
     );
@@ -100,6 +104,7 @@ class DropDownItems extends StatefulWidget {
 
   final List<DropdownMenuItem<String>> _dropMenuItemsDeductible = _deductible
       .map((value) => DropdownMenuItem<String>(
+            key: ValueKey(value),
             value: value,
             child: SimpleText(text: value, size: 15, weight: null),
           ))
@@ -147,11 +152,11 @@ class _DropDownState extends State<DropDownItems> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.only(left: 10),
+        padding: const EdgeInsets.only(left: 10),
         child: DropdownButton(
             value: widget._select,
             hint: SimpleText(
-                text: widget.hint != null ? widget.hint : "Choose",
+                text: widget.hint != null ? widget.hint : widget._choice,
                 size: 15,
                 weight: null),
             onChanged: (values) {

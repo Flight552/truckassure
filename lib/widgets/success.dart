@@ -7,16 +7,16 @@ class Success extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
       child: Column(
         children: [
           ImageContainer(),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           PageTitleContainer(title: "Membership purchased"),
           Container(
-              margin: EdgeInsets.only(top: 200),
+              margin: const EdgeInsets.only(top: 200),
               alignment: Alignment.center,
               child: SimpleText(
                   text: "The document will be sent to your emai",

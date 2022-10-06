@@ -43,6 +43,7 @@ class _CompanyWidgetState extends State<CompanyWidget> {
 
   @override
   void initState() {
+    super.initState();
     _isButtonEnabled = false;
   }
 
@@ -119,7 +120,7 @@ class _CompanyWidgetState extends State<CompanyWidget> {
                 formatterList: null,
               ),
               Container(
-                  padding: EdgeInsets.only(left: 10, top: 20),
+                  padding: const EdgeInsets.only(left: 10, top: 20),
                   alignment: Alignment.centerLeft,
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -136,7 +137,7 @@ class _CompanyWidgetState extends State<CompanyWidget> {
                         )
                       ])),
               Container(
-                  padding: EdgeInsets.only(left: 10),
+                  padding: const EdgeInsets.only(left: 10),
                   alignment: Alignment.centerLeft,
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -210,12 +211,12 @@ class _CompanyWidgetState extends State<CompanyWidget> {
           ),
         )),
         Container(
-            margin: EdgeInsets.only(bottom: 20),
+            margin: const EdgeInsets.only(bottom: 20),
             child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     elevation: 4,
                     primary: Colors.black,
-                    minimumSize: Size.square(40)),
+                    minimumSize: const Size.square(40)),
                 onPressed: !_isButtonEnabled
                     ? null
                     : () {
