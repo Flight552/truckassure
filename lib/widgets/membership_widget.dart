@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:truckassure/widgets/calculate_fee.dart';
-import 'package:truckassure/widgets/default/drop_down_states.dart';
-import 'package:truckassure/widgets/default/image_container.dart';
-import 'package:truckassure/widgets/default/state_notifier.dart';
-import 'package:truckassure/widgets/default/text_simple.dart';
-import 'package:truckassure/widgets/default/title_container.dart';
+import '../widgets/credit_card.dart';
+import '../widgets/default/drop_down_states.dart';
+import '../widgets/default/image_container.dart';
+import '../widgets/default/scaffold_default.dart';
+import '../widgets/default/state_notifier.dart';
+import '../widgets/default/text_simple.dart';
 
 class MembershipDetails extends StatefulWidget {
+  static const ROUTE_NAME = "/membership";
+
   @override
   State<StatefulWidget> createState() => _MembershipDetailsState();
 }
@@ -53,55 +55,50 @@ class _MembershipDetailsState extends State<MembershipDetails> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          children: [
-            ImageContainer(),
-            PageTitleContainer(
-              title: "Membership Details",
-            ),
-            Expanded(
-                child: Container(
-                    alignment: Alignment.centerLeft,
-                    padding: const EdgeInsets.only(top: 50),
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SimpleText(
-                            text: "Limit:",
-                            size: 25,
-                            weight: FontWeight.bold,
-                          ),
-                          DropDownItems(
-                            choice: "limit",
-                            getAmount: getFee,
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          SimpleText(
-                            text: "Deductible:",
-                            size: 25,
-                            weight: FontWeight.bold,
-                          ),
-                          DropDownItems(
-                            choice: "deductible",
-                            getAmount: getDeductible,
-                          ),
-                          const SizedBox(
-                            height: 30,
-                          ),
-                          SimpleText(
-                            text: "Membership fee:",
-                            size: 25,
-                            weight: FontWeight.bold,
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Container(
-                              child: AnimatedBuilder(
+    return ScaffoldDefault(title: "Membership Details", widget: Column(
+      children: [
+        ImageContainer(),
+        Expanded(
+            child: Container(
+                alignment: Alignment.centerLeft,
+                padding: const EdgeInsets.only(top: 50),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SimpleText(
+                        text: "Limit:",
+                        size: 25,
+                        weight: FontWeight.bold,
+                      ),
+                      DropDownItems(
+                        choice: "limit",
+                        getAmount: getFee,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      SimpleText(
+                        text: "Deductible:",
+                        size: 25,
+                        weight: FontWeight.bold,
+                      ),
+                      DropDownItems(
+                        choice: "deductible",
+                        getAmount: getDeductible,
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      SimpleText(
+                        text: "Membership fee:",
+                        size: 25,
+                        weight: FontWeight.bold,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                          child: AnimatedBuilder(
                             animation: _textNotifier,
                             builder: (_, __) => SimpleText(
                               text: _textNotifier.myText,
@@ -109,23 +106,23 @@ class _MembershipDetailsState extends State<MembershipDetails> {
                               weight: FontWeight.bold,
                             ),
                           ))
-                        ]))),
-            Container(
-                alignment: Alignment.bottomCenter,
-                margin: const EdgeInsets.only(bottom: 20),
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        elevation: 4,
-                        primary: Colors.black,
-                        minimumSize: const Size.square(40)),
-                    onPressed: () {
-                      print("Purchase Now");
-                    },
-                    child: Text(
-                      "Purchase Now",
-                      style: const TextStyle(color: Colors.white),
-                    )))
-          ],
-        ));
+                    ]))),
+        Container(
+            alignment: Alignment.bottomCenter,
+            margin: const EdgeInsets.only(bottom: 20),
+            child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    elevation: 4,
+                    primary: Colors.black,
+                    minimumSize: const Size.square(40)),
+                onPressed: () {
+                  Navigator.of(context).pushNamed(CreditCard.ROUTE_NAME);
+                },
+                child: Text(
+                  "Purchase Now",
+                  style: const TextStyle(color: Colors.white),
+                )))
+      ],
+    ));
   }
 }

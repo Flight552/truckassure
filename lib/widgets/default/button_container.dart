@@ -10,7 +10,6 @@ class ButtonContainer extends StatefulWidget {
 
 class _ButtonContainerState extends State<ButtonContainer> {
   bool _isButtonDisabled;
-
   @override
   void initState() {
     super.initState();

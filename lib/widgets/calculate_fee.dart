@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:truckassure/widgets/default/text_simple.dart';
+import 'package:truckassure/widgets/default/scaffold_default.dart';
+import '../widgets/default/text_simple.dart';
 
 class CalculateFee extends StatefulWidget {
+  static const ROUTE_NAME = "/calculate_fee";
   final String getFee;
   CalculateFee({this.getFee});
   @override
@@ -18,11 +20,11 @@ class _CalculateFeeState extends State<CalculateFee> {
   }
 
   Widget build(BuildContext context) {
-    return Container(
+    return ScaffoldDefault(title: "Membership Fee",widget: Container(
         child: SimpleText(
-      text: txt,
-      size: 25,
-      weight: FontWeight.bold,
-    ));
+          text: txt,
+          size: 25,
+          weight: FontWeight.bold,
+        )),);
   }
 }

@@ -44,6 +44,9 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
             autocorrect: false,
             inputFormatters:
                 widget.formatterList != null ? widget.formatterList : [],
+            onChanged: (_) {
+              widget.result();
+            },
             onSubmitted: (_) {
               widget.result();
             }));

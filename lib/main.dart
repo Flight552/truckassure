@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:truckassure/models/drivers_details_data.dart';
 import 'package:truckassure/models/vehicles_data.dart';
+import 'package:truckassure/widgets/calculate_fee.dart';
 import 'package:truckassure/widgets/company_widget.dart';
 import 'package:truckassure/widgets/credit_card.dart';
 import 'package:truckassure/widgets/drivers_details_widget.dart';
@@ -30,52 +31,17 @@ class MyApp extends StatelessWidget {
                   fontWeight: FontWeight.normal,
                   fontSize: 25),
               button: TextStyle(color: Colors.white))),
-      home: MyHomePage(title: 'Truck Assure'),
+      routes: {
+        "/" : (ctx) => CompanyWidget(),
+        DriversDetails.ROUTE_NAME : (ctx) => DriversDetails(),
+        DriversList.ROUTE_NAME : (ctx) => DriversList(),
+        Vehicles.ROUTE_NAME : (ctx) => Vehicles(),
+        VehiclesList.ROUTE_NAME : (ctx) => VehiclesList(),
+        MembershipDetails.ROUTE_NAME : (ctx) => MembershipDetails(),
+        CalculateFee.ROUTE_NAME : (ctx) => CalculateFee(),
+        CreditCard.ROUTE_NAME : (ctx) => CreditCard(),
+        Success.ROUTE_NAME : (ctx) => Success()
+      },
     );
   }
 }
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(body: SafeArea(child: CreditCard()));
-  }
-}
-
-//         child: VehiclesList(
-            //   list: [
-            //     VehiclesData(
-            //         vin: "123-aadfdsaaadf",
-            //         makeModel: "Toyota Fortuner",
-            //         modelYear: "2022",
-            //         type: "CrossOver"),
-            //     VehiclesData(
-            //         vin: "432-aadfdsfsdfsdfsdfsdaaadf",
-            //         makeModel: "Mersedes CRV",
-            //         modelYear: "2022",
-            //         type: "CrossOver")
-            //   ],
-            // )
-            // Success()
-            // child: Vehicles()
-            // child: CompanyWidget()
-            // child: DriversDetails()
-            // child: MembershipDetails()
-    //                child: DriversList(
-    //   list: [
-    //     DriversDetailsData(
-    //         name: "Ozzy Osborne", dateOfBirth: "07/31/1979", license: "123456"),
-    //     DriversDetailsData(
-    //         name: "Curt Donald Cobain",
-    //         dateOfBirth: "07/31/1979",
-    //         license: "123456")
-    //   ],
-    // )

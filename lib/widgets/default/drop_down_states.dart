@@ -12,6 +12,7 @@ class DropDownItems extends StatefulWidget {
 }
 
 class _DropDownState extends State<DropDownItems> {
+
   String _select;
 
   static const _statesItems = [
@@ -162,11 +163,11 @@ class _DropDownState extends State<DropDownItems> {
                 size: 15,
                 weight: null),
             onChanged: (values) {
-              if (widget.getAmount != null) {
-                widget.getAmount(values);
-              }
               setState(() {
                 _select = values;
+                if (widget.getAmount != null) {
+                  widget.getAmount(_select);
+                }
               });
             },
             items: getList(widget.choice)));

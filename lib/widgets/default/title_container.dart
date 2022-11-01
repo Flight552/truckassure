@@ -7,13 +7,14 @@ class PageTitleContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(bottom: 10),
-      child: Text(
+      child: Center(child:
+      Text(
         title,
         style: TextStyle(
             color: Theme.of(context).primaryColor,
             fontSize: 30,
             fontWeight: FontWeight.bold),
-      ),
+      ),)
     );
   }
 }

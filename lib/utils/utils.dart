@@ -15,6 +15,7 @@ class Utils {
       String email,
       String taxId,
       String fmcsa) {
+    print("country : $country, state: $state");
     if (company != null &&
         company.isNotEmpty &&
         zipcode != null &&
@@ -61,15 +62,18 @@ class Utils {
   }
 
   bool isVehicleValid(
-      String vin, String modelYear, String makeModel, String type) {
+      String vin, String modelYear, String makeModel, {String type = "Car"}) {
+    print("$vin, $modelYear, $makeModel, $type");
     if (vin != null &&
         vin.isNotEmpty &&
         modelYear != null &&
         modelYear.isNotEmpty &&
         makeModel != null &&
-        makeModel.isNotEmpty &&
-        type != null &&
-        type.isNotEmpty) {
+        makeModel.isNotEmpty
+    //&&
+        // type != null &&
+        // type.isNotEmpty
+    ) {
       return true;
     }
     return false;
