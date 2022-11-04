@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:truckassure/providers/vehicle_details_provider.dart';
 import 'package:truckassure/widgets/default/scaffold_default.dart';
 import '../models/vehicles_data.dart';
 import '../widgets/default/image_container.dart';
@@ -42,6 +44,7 @@ class _VehiclesData extends State<Vehicles> {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<VehicleDetailsProvider>(context, listen: false);
     return ScaffoldDefault(title: "Vehicles and Equipment",widget: Column(
       children: [
         ImageContainer(),
@@ -82,7 +85,7 @@ class _VehiclesData extends State<Vehicles> {
                                 choice: "types",
                                 hint: "Choose type",
                                 getAmount: (value) {
-                                  _type = value;
+                                  _type = value as String;
                                 },
                               )
                             ]))
@@ -107,6 +110,7 @@ class _VehiclesData extends State<Vehicles> {
                         makeModel: _makeModel.text,
                         type: _type);
                     print("enter");
+                    provider.addVehicleData(data);
                     Navigator.of(context).pop(data);
                   } else {
                     print("do not enter");

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:truckassure/utils/utils.dart';
-import 'package:truckassure/widgets/default/image_container.dart';
-import 'package:truckassure/widgets/default/scaffold_default.dart';
-import 'package:truckassure/widgets/default/text_field.dart';
-import 'package:truckassure/widgets/default/title_container.dart';
-import 'package:truckassure/models/drivers_details_data.dart';
+import 'package:provider/provider.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:truckassure/widgets/drivers_list_widget.dart';
+
+import '../utils/utils.dart';
+import '../providers/drivers_details_provider.dart';
+import '../widgets/default/image_container.dart';
+import '../widgets/default/scaffold_default.dart';
+import '../widgets/default/text_field.dart';
+import '../models/drivers_details_data.dart';
 
 class DriversDetails extends StatefulWidget {
   static const ROUTE_NAME = "/drivers_details";
@@ -49,6 +50,7 @@ class _DriversDetailsState extends State<DriversDetails> {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<DriversDetailsProvider>(context, listen: false);
     return ScaffoldDefault(title: "Driver's Details", widget: Column(children: [
      ImageContainer(),
       Expanded(
@@ -98,6 +100,7 @@ class _DriversDetailsState extends State<DriversDetails> {
                   print("id = ${data.id}");
                   print("date = ${data.dateOfBirth}");
                   print("license = ${data.license}");
+                  provider.addDriverData(data);
                   Navigator.of(context).pop(data);
                 } else {
                   print("do not enter");

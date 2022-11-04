@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:truckassure/providers/company_details_provider.dart';
 import 'package:truckassure/widgets/default/scaffold_default.dart';
 import '../widgets/default/drop_down_states.dart';
 import '../widgets/default/image_container.dart';
@@ -74,6 +76,7 @@ class _CompanyWidgetState extends State<CompanyWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<CompanyDetailsProvider>(context);
     return ScaffoldDefault(title: "Company details", widget: Column(
       children: [
         ImageContainer(),
@@ -128,7 +131,7 @@ class _CompanyWidgetState extends State<CompanyWidget> {
                               choice: "country",
                               hint: "Choose country",
                               getAmount: (value) {
-                                _country = value;
+                                _country = value as String;
                               },
                             )
                           ])),
@@ -147,7 +150,7 @@ class _CompanyWidgetState extends State<CompanyWidget> {
                               choice: "states",
                               hint: "Choose state",
                               getAmount: (value) {
-                                _state = value;
+                                _state = value as String;
                               },
                             )
                           ])),
@@ -235,6 +238,7 @@ class _CompanyWidgetState extends State<CompanyWidget> {
                         taxId: _taxId.text,
                         fmcsa: _fmcsa.text);
                     print("enter");
+                    provider.addCompanyData(data);
                     Navigator.of(context).pushNamed(DriversList.ROUTE_NAME);
                   } else {
                     print("do not enter");

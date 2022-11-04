@@ -1,10 +1,14 @@
 import 'package:flutter/foundation.dart';
 
 class StateNotifier extends ChangeNotifier {
-  String myText = "0";
+  String _myText = "0";
 
   void changeText(String text) {
-    myText = text;
+    _myText = text;
     notifyListeners();
+  }
+
+  String get myText {
+    return _myText;
   }
 }

@@ -166,7 +166,7 @@ class _DropDownState extends State<DropDownItems> {
               setState(() {
                 _select = values;
                 if (widget.getAmount != null) {
-                  widget.getAmount(_select);
+                  widget.getAmount( _select);
                 }
               });
             },

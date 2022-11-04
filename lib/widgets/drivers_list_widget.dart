@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:truckassure/providers/drivers_details_provider.dart';
 import '../models/drivers_details_data.dart';
 import '../widgets/default/image_container.dart';
 import '../widgets/default/text_simple.dart';
@@ -13,40 +15,18 @@ class DriversList extends StatefulWidget {
 }
 
 class _DriversList extends State<DriversList> {
-  List<DriversDetailsData> _list = [];
   bool _isEnabled = false;
 
-  @override
-  void initState() {
-    super.initState();
-    if (_list.isEmpty) {
-      print("List is empty!!!");
-    } else {
-      print("inside init List is not empty!!!");
-    }
-  }
-
-  void fillIn(DriversDetailsData data) {
+  void fillIn(List<DriversDetailsData> _list) {
     setState(() {
-      try {
-        if(data != null) {
-          _list.add(data);
-        }
-        _isEnabled = _list.isNotEmpty ? true : false;
-      } catch (e) {
-        print("data is null");
-      }
-    });
-  }
-
-  void onDelete(String id) {
-    setState(() {
-      _list.removeWhere((element) => element.id == id);
+      _isEnabled = _list.isNotEmpty ? true : false;
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<DriversDetailsProvider>(context);
+    fillIn(provider.driversData);
     return Scaffold(
       appBar: AppBar(
         leading: BackButton(
@@ -74,20 +54,21 @@ class _DriversList extends State<DriversList> {
             ImageContainer(),
             Expanded(
               child: Container(
-                  child: _list.isNotEmpty
+                  child: provider.driversData.isNotEmpty
                       ? ListView.builder(
                           itemBuilder: (context, index) {
-                            print("${_list.length}");
+                            print("${provider.driversData.length}");
                             print("List is not empty!!!");
                             var _id = "";
                             var _name = "";
                             var _dateOfBirth = "";
                             var _license = "";
                             try {
-                              _id = _list[index].id;
-                              _name = _list[index].name;
-                              _dateOfBirth = _list[index].dateOfBirth;
-                              _license = _list[index].license;
+                              _id = provider.driversData[index].id;
+                              _name = provider.driversData[index].name;
+                              _dateOfBirth =
+                                  provider.driversData[index].dateOfBirth;
+                              _license = provider.driversData[index].license;
                             } catch (e) {
                               _id = "-1";
                             }
@@ -119,8 +100,10 @@ class _DriversList extends State<DriversList> {
                                                   color: Colors.red[900],
                                                   splashColor: Colors.red,
                                                   onPressed: () {
-                                                    onDelete(_list[index].id);
-                                                    fillIn(null);
+                                                    provider.deleteDriver(
+                                                        provider
+                                                            .driversData[index]
+                                                            .id);
                                                   },
                                                 ),
                                               ),
@@ -155,13 +138,14 @@ class _DriversList extends State<DriversList> {
                                   ),
                                 ));
                           },
-                          itemCount: _list.length,
+                          itemCount: provider.driversData.length,
                         )
                       : Center(
-                          child: const SimpleText(text:
-                            "Drivers List is empty",
-                            size: 24, weight: FontWeight.bold,
-                          ))),
+                          child: const SimpleText(
+                          text: "Drivers List is empty",
+                          size: 24,
+                          weight: FontWeight.bold,
+                        ))),
             ),
             Container(
                 margin: EdgeInsets.only(bottom: 20),
@@ -173,7 +157,7 @@ class _DriversList extends State<DriversList> {
                     onPressed: !_isEnabled
                         ? null
                         : () {
-                            if (_list.isNotEmpty) {
+                            if (provider.driversData.isNotEmpty) {
                               print("enter");
                               Navigator.of(context)
                                   .pushNamed(VehiclesList.ROUTE_NAME);
@@ -193,11 +177,7 @@ class _DriversList extends State<DriversList> {
         child: Icon(Icons.add),
         autofocus: false,
         onPressed: () {
-          Navigator.of(context)
-              .pushNamed(DriversDetails.ROUTE_NAME)
-              .then((value) {
-            fillIn(value as DriversDetailsData);
-          });
+          Navigator.of(context).pushNamed(DriversDetails.ROUTE_NAME);
         },
       ),
     );
