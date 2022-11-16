@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../widgets/credit_card.dart';
-import '../widgets/default/drop_down_states.dart';
-import '../widgets/default/image_container.dart';
-import '../widgets/default/scaffold_default.dart';
-import '../providers/state_notifier.dart';
-import '../widgets/default/text_simple.dart';
+import 'credit_card.dart';
+import '../default/drop_down_states.dart';
+import '../default/image_container.dart';
+import '../default/scaffold_default.dart';
+import '../../providers/state_notifier.dart';
+import '../default/text_simple.dart';
 
 class MembershipDetails extends StatefulWidget {
   static const ROUTE_NAME = "/membership";

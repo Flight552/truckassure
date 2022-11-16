@@ -13,6 +13,12 @@ class DriversDetailsProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  void updateDriver(String id, DriversDetailsData driver) {
+    int index = _driversData.indexWhere((element) => element.id == id);
+    _driversData[index] = driver;
+    notifyListeners();
+  }
+
   void deleteDriver(String id) {
     _driversData.removeWhere((element) => element.id == id);
     notifyListeners();

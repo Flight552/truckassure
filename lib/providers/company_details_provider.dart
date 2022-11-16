@@ -12,4 +12,9 @@ class CompanyDetailsProvider with ChangeNotifier {
         _companyData.add(data);
         notifyListeners();
       }
+
+      void updateCompany(String id, CompanyDetailsData data) {
+        var index = _companyData.indexWhere((element) => element.id == id);
+        _companyData[index] = data;
+      }
 }

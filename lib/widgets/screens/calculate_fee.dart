@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:truckassure/widgets/default/scaffold_default.dart';
-import '../widgets/default/text_simple.dart';
+import '../default/text_simple.dart';
 
 class CalculateFee extends StatefulWidget {
   static const ROUTE_NAME = "/calculate_fee";

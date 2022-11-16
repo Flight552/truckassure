@@ -6,15 +6,15 @@ import 'package:truckassure/providers/company_details_provider.dart';
 import 'package:truckassure/providers/drivers_details_provider.dart';
 import 'package:truckassure/providers/state_notifier.dart';
 import 'package:truckassure/providers/vehicle_details_provider.dart';
-import 'package:truckassure/widgets/calculate_fee.dart';
-import 'package:truckassure/widgets/company_widget.dart';
-import 'package:truckassure/widgets/credit_card.dart';
-import 'package:truckassure/widgets/drivers_details_widget.dart';
-import 'package:truckassure/widgets/drivers_list_widget.dart';
-import 'package:truckassure/widgets/success.dart';
-import 'package:truckassure/widgets/vehicle_list_widget.dart';
-import 'package:truckassure/widgets/vehicles_widget.dart';
-import 'package:truckassure/widgets/membership_widget.dart';
+import 'package:truckassure/widgets/screens/calculate_fee.dart';
+import 'package:truckassure/widgets/screens/company_widget.dart';
+import 'package:truckassure/widgets/screens/credit_card.dart';
+import 'package:truckassure/widgets/screens/drivers_details_widget.dart';
+import 'package:truckassure/widgets/screens/drivers_list_widget.dart';
+import 'package:truckassure/widgets/screens/success.dart';
+import 'package:truckassure/widgets/screens/vehicle_list_widget.dart';
+import 'package:truckassure/widgets/screens/vehicles_widget.dart';
+import 'package:truckassure/widgets/screens/membership_widget.dart';
 
 void main() {
   runApp(MyApp());

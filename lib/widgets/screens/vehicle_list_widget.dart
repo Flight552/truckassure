@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers/vehicle_details_provider.dart';
-import '../widgets/membership_widget.dart';
-import '../widgets/vehicles_widget.dart';
+import '../../providers/vehicle_details_provider.dart';
+import 'membership_widget.dart';
+import 'vehicles_widget.dart';
 
-import 'default/image_container.dart';
-import 'default/text_simple.dart';
+import '../default/image_container.dart';
+import '../default/text_simple.dart';
 
 class VehiclesList extends StatefulWidget {
   static const ROUTE_NAME = "/vehicle_list";

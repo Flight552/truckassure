@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/credit_card_brand.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:truckassure/widgets/default/text_simple.dart';
-import '../widgets/default/scaffold_default.dart';
-import '../widgets/success.dart';
+import '../default/scaffold_default.dart';
+import 'success.dart';
 
 class CreditCard extends StatefulWidget {
   static const ROUTE_NAME = "/credit_card";

@@ -13,6 +13,12 @@ class VehicleDetailsProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  void updateVehicle(String id, VehiclesData driver) {
+    int index = _vehicleData.indexWhere((element) => element.id == id);
+    _vehicleData[index] = driver;
+    notifyListeners();
+  }
+
   void deleteVehicle(String id) {
     _vehicleData.removeWhere((element) => element.id == id);
     notifyListeners();

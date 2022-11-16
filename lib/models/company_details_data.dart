@@ -1,4 +1,5 @@
 class CompanyDetailsData {
+  final String id;
   final String companyName;
   final int zipcode;
   final String street;
@@ -14,7 +15,8 @@ class CompanyDetailsData {
   final String fmcsa;
 
   CompanyDetailsData(
-      {this.companyName,
+      {this.id,
+        this.companyName,
       this.zipcode,
       this.street,
       this.city,

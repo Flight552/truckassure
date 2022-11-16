@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:truckassure/providers/drivers_details_provider.dart';
-import '../models/drivers_details_data.dart';
-import '../widgets/default/image_container.dart';
-import '../widgets/default/text_simple.dart';
-import '../widgets/drivers_details_widget.dart';
-import '../widgets/vehicle_list_widget.dart';
+import '../../providers/drivers_details_provider.dart';
+import '../../models/drivers_details_data.dart';
+import '../default/image_container.dart';
+import '../default/text_simple.dart';
+import 'drivers_details_widget.dart';
+import 'vehicle_list_widget.dart';
 
 class DriversList extends StatefulWidget {
   static const ROUTE_NAME = "/drivers_list";
