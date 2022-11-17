@@ -635,13 +635,13 @@ class _CompanyWidgetState extends State<CompanyWidget> {
                     elevation: 4,
                     primary: Colors.black,
                     minimumSize: const Size.square(40)),
-                onPressed: !_isDataValid
+                onPressed: _isDataValid
                     ? null
                     : () {
-                  if (_isDataValid) {
-                    _onSubmit();
+                 // if (_isDataValid) {
+                  //  _onSubmit();
                     Navigator.of(context).pushNamed(DriversList.ROUTE_NAME);
-                  }
+                //  }
                 },
                 child: Text(
                   "Next",

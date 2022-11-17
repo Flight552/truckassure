@@ -20,11 +20,14 @@ class Vehicles extends StatefulWidget {
 class _VehiclesData extends State<Vehicles> {
   String _type = "Car";
   bool _isDataValid = false;
-
+  final _yearController = TextEditingController();
+  final _modelController = TextEditingController();
+  final _typeController = TextEditingController();
   final _globalForm = GlobalKey<FormState>();
 
-  var _vehicleData =
-      VehiclesData(id: null, vin: "", modelYear: "", makeModel: "", type: "");
+  VehiclesData _vehicleData;
+
+  //  VehiclesData(id: null, vin: "", modelYear: "", makeModel: "", type: "");
 
   void onChangeText(String value) {
     if (value.isEmpty) {
@@ -58,7 +61,28 @@ class _VehiclesData extends State<Vehicles> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+  }
+
+  var text = "some text";
+
+  void fillIn() {
+    var result =
+        Provider.of<VehicleDetailsProvider>(context, listen: false).getVehicle;
+    setState(() {
+      if (result != null) {
+        print(result.makeModel);
+        _yearController.text = result.modelYear;
+        _modelController.text = result.makeModel;
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    var result =
+        Provider.of<VehicleDetailsProvider>(context).getVehicle;
     return ScaffoldDefault(
       title: "Vehicles and Equipment",
       widget: Column(
@@ -97,7 +121,18 @@ class _VehiclesData extends State<Vehicles> {
                     setState(() {});
                   },
                   onChanged: (value) {
+                    fillIn();
                     onChangeText(value);
+                    try {
+                      final vin = "JH4DA9470PS008042";
+                      Future.delayed(Duration(milliseconds: 500)).then((_) {
+                        Provider.of<VehicleDetailsProvider>(context,
+                                listen: false)
+                            .getVin(value);
+                      });
+                    } catch (e) {
+                      print(e);
+                    }
                   },
                   validator: (value) {
                     if (value.isEmpty) {
@@ -107,6 +142,7 @@ class _VehiclesData extends State<Vehicles> {
                   },
                 ),
                 TextFormField(
+                  controller: _yearController,
                   style: TextStyle(color: Colors.black, fontSize: 25),
                   decoration: InputDecoration(
                     labelText: "Model / Year",
@@ -143,6 +179,7 @@ class _VehiclesData extends State<Vehicles> {
                   },
                 ),
                 TextFormField(
+                  controller: _modelController,
                   style: TextStyle(color: Colors.black, fontSize: 25),
                   decoration: InputDecoration(
                     labelText: "Make / Model",

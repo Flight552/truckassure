@@ -154,16 +154,16 @@ class _DriversList extends State<DriversList> {
                         elevation: 4,
                         primary: Colors.black,
                         minimumSize: const Size.square(40)),
-                    onPressed: !_isEnabled
+                    onPressed: _isEnabled
                         ? null
                         : () {
-                            if (provider.driversData.isNotEmpty) {
-                              print("enter");
+                          //  if (provider.driversData.isNotEmpty) {
+                          //    print("enter");
                               Navigator.of(context)
                                   .pushNamed(VehiclesList.ROUTE_NAME);
-                            } else {
-                              print("do not enter");
-                            }
+                         //   } else {
+                         //     print("do not enter");
+                         //   }
                           },
                     child: const Text(
                       "Next",
